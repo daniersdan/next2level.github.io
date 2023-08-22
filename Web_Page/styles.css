@@ -1,0 +1,86 @@
+/* Reset de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+}
+
+/* Estilos de encabezado */
+header {
+    background-color: #2a3f54;
+    color: white;
+    padding: 1rem 0;
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+    margin-left: 1rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin-right: 1rem;
+}
+
+.nav-links li {
+    margin: 0 1rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Estilos de secciones */
+.hero {
+    text-align: center;
+    padding: 5rem 0;
+    background-color: #1063e1;
+    color: white;
+}
+
+.hero h1 {
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: #8fb1eb;
+    color: #ff6666;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.services {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.service-card {
+    background-color: white;
+    padding: 2rem;
+    margin: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.service-card h3 {
+    margin-bottom: 1rem;
+}
+
+/* Estilos de pie de página */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    background-color: #2a3f54;
+    color: white;
+}
