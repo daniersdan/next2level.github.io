@@ -18,6 +18,13 @@ header {
     padding: 1rem 0;
 }
 
+.logo-text{
+    text-align: center;
+    align-items: center;
+    margin-left: 2rem;
+    margin-top: 2rem;
+}
+
 .logo {
     display: flex;
     justify-content: left;
