@@ -6,10 +6,11 @@
     <link rel="stylesheet" href="styles.css" />
     <link
       rel="stylesheet"
-      href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
   </head>
   <body>
+    <div class="background-image"></div>
     <div id="header">
       <div class="container">
         <nav>
@@ -33,12 +34,11 @@
         </div>
       </div>
     </div>
-
     <div id="about">
       <div class="container">
         <div class="row">
           <div>
-            <img src="logo.png" />
+            <img src="" />
           </div>
           <div>
             <h1 class="sub-title">Conocenos</h1>
@@ -48,7 +48,6 @@
               informadas. Identificamos oportunidades de mejora y optimización
               en tu flujo de datos.
             </p>
-
             <div class="tab-titles">
               <p class="tab-links active-link" onclick="opentab('skills')">
                 Skills
@@ -126,7 +125,6 @@
         </div>
       </div>
     </div>
-
     <div id="services">
       <div class="container">
         <h1 class="sub-title">Nuestros Servicios</h1>
@@ -141,7 +139,7 @@
             <a href="#">Saber mas...</a>
           </div>
           <div>
-            <i class="fa-sharp fa-solid fa-crop-simple"></i>
+            <i class="fa-sharp fa-solid fa-dashboard"></i>
             <h2>Visualizacion</h2>
             <p>
               Creacion de tableros(dashboard) para visualizacion de KPI's,
@@ -150,7 +148,7 @@
             <a href="#">Saber mas...</a>
           </div>
           <div>
-            <i class="fa-sharp fa-solid fa-crop-simple"></i>
+            <i class="fa-sharp fa-solid fa-diagnoses"></i>
             <h2>Workforce</h2>
             <p>planeacion operativa de personal y procesos.</p>
             <a href="#">Saber mas...</a>
@@ -158,13 +156,12 @@
         </div>
       </div>
     </div>
-
     <div id="portfolio">
       <div class="container">
         <h1 class="sub-title">Nuestro Portafolio</h1>
         <div class="work-list">
           <div class="work">
-            <img src="logo.png" />
+            <img src="almacenamiento.png" />
             <div class="layer">
               <h3>Almacenamiento</h3>
               <p>
@@ -177,7 +174,7 @@
             </div>
           </div>
           <div class="work">
-            <img src="logo.png" />
+            <img src="almacenamiento.png" />
             <div class="layer">
               <h3>Transformacion</h3>
               <p>
@@ -191,7 +188,7 @@
             </div>
           </div>
           <div class="work">
-            <img src="logo.png" />
+            <img src="almacenamiento.png" />
             <div class="layer">
               <h3>Dashboard</h3>
               <p>
@@ -208,7 +205,6 @@
         <a href="#" class="btn">Saber mas...</a>
       </div>
     </div>
-
     <div id="contact">
       <div class="container">
         <div class="row">
@@ -216,7 +212,7 @@
             <h1 class="sub-tittle">Contactenos</h1>
             <p><i class="fa-solid fa-paper-plane"></i> next2level@gmail.com</p>
             <p><i class="fa-sharp fa-solid fa-phone"></i> +573214982416</p>
-            <div clas="social-icons">
+            <div class="social-icons">
               <a href="https://facebook.com/"
                 ><i class="fa-brands fa-facebook"></i
               ></a>
@@ -241,20 +237,19 @@
         </div>
       </div>
       <div class="copyright">
-        <p>copyright ©Next2Level. 2023 <i class="fa-solid fa-heart"></i></p>
+        <p>copyright ©Next2Level. 2023 <i class="fa-solid fa-database"></i></p>
       </div>
     </div>
-
     <script>
       var tablinks = document.getElementsByClassName("tablinks");
-      var tablinks = document.getElementsByClassName("tab-contents");
+      var tabcontents = document.getElementsByClassName("tab-contents");
 
       function opentab(tabname) {
         for (tablink of tablinks) {
           tablink.classList.remove("active-link");
         }
         for (tabcontent of tabcontents) {
-          tabcontent.classList.remove("active-link");
+          tabcontent.classList.remove("active-tab");
         }
         event.currentTarget.classList.add("active-link");
         document.getElementById(tabname).classList.add("active-tab");
@@ -262,14 +257,14 @@
     </script>
 
     <script>
-      var sidmenu = document.getElementById("sidemenu");
+      var sidemenu = document.getElementById("sidemenu");
 
       function openmenu() {
-        sidemeu.style.right = "0";
+        sidemenu.style.right = "0";
       }
 
       function closemenu() {
-        sidemeu.style.right = "-200px";
+        sidemenu.style.right = "-200px";
       }
     </script>
   </body>
