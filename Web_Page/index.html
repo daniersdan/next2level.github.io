@@ -8,13 +8,29 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
+    <script>
+      function mostrarAlerta(mensaje) {
+        alert(mensaje);
+        window.location.href = "/index.html"; // Cambia esto según la ubicación de tu archivo index.html
+      }
+    </script>
+    <script>
+      function mostrarVentanaEmergente() {
+        var mensaje = "¡Mensaje personalizado aquí!";
+        alert(mensaje);
+        window.location.href = "#"; // Redirige al inicio de la página
+      }
+    </script>
   </head>
   <body>
     <div class="background-image"></div>
     <div id="header">
       <div class="container">
         <nav class="displaymenu">
-          <img src="images/logo.png" class="logo" />
+          <div class="logo-container">
+            <img src="images/logo.png" class="logo" />
+            <p class="logotext">Next2Level</p>
+          </div>
           <ul id="sidemenu">
             <li><a href="#header">Inicio</a></li>
             <li><a href="#about">Conocenos</a></li>
@@ -220,15 +236,27 @@
             </div>
           </div>
           <div class="contact-right">
-            <form>
-              <input type="text" name="Name" placeholder="Nombre" required />
+            <form action="/insert" method="POST">
+              <input type="text" name="name" placeholder="Nombre" required />
               <input type="email" name="email" placeholder="Correo" required />
+              <input
+                type="number"
+                name="phone"
+                placeholder="Telefono"
+                required
+              />
               <textarea
                 name="Message"
                 rows="6"
                 placeholder="Mensaje"
               ></textarea>
-              <button type="submit" class="btn2">Enviar</button>
+              <button
+                type="submit"
+                class="btn2"
+                onclick="mostrarVentanaEmergente()"
+              >
+                Enviar
+              </button>
             </form>
           </div>
         </div>

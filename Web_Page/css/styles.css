@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: "poppins", sans-serif;
+  font-family: "Courier", monospace;
   box-sizing: border-box;
 }
 
@@ -16,7 +16,23 @@ body {
 #header {
   position: relative;
   width: 100%;
-  height: auto;
+  height: 75rem;
+}
+
+.logo-container {
+  display: grid;
+  align-items: center;
+}
+
+.logo {
+  width: 140px;
+  margin-right: 10px;
+}
+
+.logotext {
+  color: #f4fefd;
+  font-size: 30px;
+  font-family: "Courier", monospace;
 }
 
 .background-image {
@@ -95,15 +111,18 @@ nav ul li a:hover::after {
 .header-text {
   margin-top: 20%;
   font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .header-text h1 {
   font-size: 60px;
   margin-top: 20px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .header-text h1 span {
   color: #0ef6cc;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 #about {
@@ -157,12 +176,12 @@ nav ul li a:hover::after {
   background: #0ef6cc;
   position: absolute;
   left: 0;
-  bottom: -8px;
+  bottom: -6px;
   transition: 0.5s;
 }
 
 .tab-links.active-link::after {
-  width: 50%;
+  width: 100%;
 }
 
 .tab-contents ul li {
@@ -283,7 +302,7 @@ nav ul li a:hover::after {
   text-decoration: none;
   font-size: 18px;
   line-height: 60px;
-  background: #fff;
+  background: #f4fefd;
   width: 60px;
   border-radius: 50%;
   text-align: center;
@@ -397,7 +416,7 @@ form .btn2 {
 .copyright {
   width: 100%;
   text-align: center;
-  padding: 25px 0;
+  padding: 2px 0;
   background: #1d1d1d;
   font-weight: 300;
   margin-top: 20px;
