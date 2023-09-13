@@ -1,7 +1,13 @@
+@font-face {
+  font-family: "Century Gothic";
+  src: url("century-gothic/CenturyGothic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
-  font-family: "Courier", monospace;
   box-sizing: border-box;
 }
 
@@ -32,7 +38,6 @@ body {
 .logotext {
   color: #f4fefd;
   font-size: 30px;
-  font-family: "Courier", monospace;
 }
 
 .background-image {
