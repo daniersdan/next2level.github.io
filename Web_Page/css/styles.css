@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Century Gothic";
-  src: url("century-gothic/CenturyGothic.ttf") format("truetype");
+  src: url("century-gothic/GOTHIC.TTF") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -9,6 +9,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Century Gothic", sans-serif;
 }
 
 html {
@@ -23,21 +24,6 @@ body {
   position: relative;
   width: 100%;
   height: 75rem;
-}
-
-.logo-container {
-  display: grid;
-  align-items: center;
-}
-
-.logo {
-  width: 140px;
-  margin-right: 10px;
-}
-
-.logotext {
-  color: #f4fefd;
-  font-size: 30px;
 }
 
 .background-image {
@@ -78,11 +64,14 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
 }
 
 .logo {
   width: 140px;
+}
+
+.logotext {
+  font-size: 26px;
 }
 
 nav ul li {
@@ -115,141 +104,36 @@ nav ul li a:hover::after {
 
 .header-text {
   margin-top: 20%;
-  font-size: 30px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
 }
 
 .header-text h1 {
-  font-size: 60px;
+  font-size: 30px;
   margin-top: 20px;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .header-text h1 span {
   color: #0ef6cc;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 #about {
   position: relative;
   padding: 80px 0;
   color: #f4fefd;
-}
-
-.row {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.about-col-1 {
-  flex-basis: 35%;
-}
-
-.about-col-1 img {
-  width: 100%;
-  border-radius: 15px;
-}
-
-.about-col-2 {
-  flex-basis: 60%;
+  height: 40rem;
 }
 
 .sub-title {
-  font-size: 60px;
+  font-size: 50px;
   font-weight: 600;
   color: #fff;
 }
 
-.tab-titles {
-  display: flex;
-  margin: 20px 0 40px;
-}
-
-.tab-links {
-  margin-right: 50px;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
+.sub-title2 {
+  font-size: 15px;
   position: relative;
-}
-
-.tab-links::after {
-  content: "";
-  width: 0;
-  height: 3px;
-  background: #0ef6cc;
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  transition: 0.5s;
-}
-
-.tab-links.active-link::after {
-  width: 100%;
-}
-
-.tab-contents ul li {
-  list-style: none;
-  margin: 10px 0;
-}
-
-.tab-contents ul li span {
-  color: #0ef6cc;
-  font-size: 14px;
-}
-
-.tab-contents {
-  display: none;
-}
-
-.tab-contents.active-tab {
-  display: block;
-}
-
-#services {
-  position: relative;
-  padding: 30px 0;
-}
-
-.services-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px;
-  margin-top: 50px;
-}
-
-.services-list div {
-  background-color: #262626;
-  padding: 40px;
-  font-size: 13px;
-  font-weight: 300;
-  border-right: 10px;
-  transition: background 0.3s, transform 0.5s;
-}
-
-.services-list div i {
-  font-size: 50px;
-  margin-bottom: 30px;
-}
-
-.services-list div h2 {
-  font-size: 30px;
-  font-weight: 500;
-  margin-bottom: 15px;
-}
-
-.services-list div a {
-  text-decoration: none;
-  color: #f4fefd;
-  font-size: 12px;
-  margin-top: 20px;
-  display: inline-block;
-}
-
-.services-list div:hover {
-  background: rgba(14, 246, 204, 0.6);
-  transform: translateY(-10px);
+  color: #fff;
+  top: 8rem;
 }
 
 #portfolio {
@@ -268,12 +152,13 @@ nav ul li a:hover::after {
   border-radius: 10px;
   position: relative;
   overflow: hidden;
+  height: 75%;
 }
 
 .work img {
   width: 100%;
   border-radius: 10px;
-  display: block;
+  display: flex;
   transition: transform 0.5s;
 }
 
@@ -314,7 +199,7 @@ nav ul li a:hover::after {
 }
 
 .work:hover img {
-  transform: scale(1.1);
+  transform: scale(1.5);
 }
 
 .work:hover .layer {
@@ -433,6 +318,32 @@ form .btn2 {
 
 nav .fa-solid {
   display: none;
+}
+
+.cursor {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  --size: 40px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin: calc(var(--size) * -0.5) 0 0 calc(var(--size) * -0.5);
+  transition: transform 0.85s cubic-bezier(0, 0.02, 0, 1);
+  display: none;
+  pointer-events: none;
+}
+@media (pointer: fine) {
+  .cursor {
+    display: block;
+  }
+}
+
+.cursor2 {
+  --size: 2px;
+  transition-duration: 0.7s;
 }
 
 @media only screen and (max-width: 600px) {

@@ -2,6 +2,7 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+    <title>Inicio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="icon" href="Images/logo.png" />
@@ -12,14 +13,14 @@
     <script>
       function mostrarAlerta(mensaje) {
         alert(mensaje);
-        window.location.href = "/index.html"; // Cambia esto según la ubicación de tu archivo index.html
+        window.location.href = "/index.html";
       }
     </script>
     <script>
       function mostrarVentanaEmergente() {
         var mensaje = "¡Muy pronto nos contactaremos contigo!";
         alert(mensaje);
-        window.location.href = "#"; // Redirige al inicio de la página
+        window.location.href = "#";
       }
     </script>
   </head>
@@ -35,7 +36,6 @@
           <ul id="sidemenu">
             <li><a href="#header">Inicio</a></li>
             <li><a href="#about">Conocenos</a></li>
-            <li><a href="#services">Servicios</a></li>
             <li><a href="#portfolio">Portafolio</a></li>
             <li><a href="#contact">Contactenos</a></li>
             <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
@@ -45,8 +45,9 @@
         <div class="header-text">
           <p>Consultorias empresariales especializadas en el uso de datos</p>
           <h1>
-            Somos un <span>aliado</span><br />que le ayudara a crecer su
-            negocio, basado en la analitica de datos.
+            Llevamos tu negocio al siguiente  <span>nivel</span>.</br> Destacamos al construir <span>soluciones</span> prácticas y personalizadas para tu industria,
+            por medio de procesos <span>ágiles</span>, técnicos y de <span>calidad</span> convirtiéndonos en el partner ideal.</br> Juntos,
+            construimos futuro con resultados <span>confiables</span> y cuantificables.
           </h1>
         </div>
       </div>
@@ -54,119 +55,16 @@
     <div id="about">
       <div class="container">
         <div class="row">
-          <div></div>
           <div>
             <h1 class="sub-title">Conocenos</h1>
-            <p>
-              Impulsamos tu negocio a través del poder de los datos. Obten
-              insights valiosos a partir de tus datos para tomar decisiones
-              informadas. Identificamos oportunidades de mejora y optimización
-              en tu flujo de datos.
+            <p class = "sub-title2">
+              Nuestra misión es impulsar la transformación empresarial a través de la excelencia
+              en gestión de la información y eficiencia operativa.</br> Apalancados en el conocimiento y experiencia
+              de nuestros colaboradores, trabajamos incansablemente para brindar soluciones personalizadas a
+              empresas de diversos sectores, ayudándolas a aprovechar al máximo sus datos y recursos. Nuestro
+              compromiso con la calidad, la innovación y la orientación al cliente nos impulsa a ser el aliado
+              estratégico que guía a las empresas hacia un nivel superior de rendimiento y competitividad.
             </p>
-            <div class="tab-titles">
-              <p class="tab-links active-link" onclick="opentab('skills')">
-                Skills
-              </p>
-              <p class="tab-links" onclick="opentab('experiencia')">
-                Experiencia
-              </p>
-              <p class="tab-links" onclick="opentab('education')">Educacion</p>
-            </div>
-            <div class="tab-contents active-tab" id="skills">
-              <ul>
-                <li><span>Python</span><br />Exploracion y moldeo de datos.</li>
-              </ul>
-              <ul>
-                <li>
-                  <span>PowerBi</span><br />Visualicion analitica de datos.
-                </li>
-              </ul>
-              <ul>
-                <li>
-                  <span>SQL</span><br />Almacenamiento y disponibilidad de
-                  datos.
-                </li>
-              </ul>
-              <ul>
-                <li>
-                  <span>Workforce</span><br />Planeacion y optimizacion de
-                  personal y servicios.
-                </li>
-              </ul>
-              <ul>
-                <li>
-                  <span>Gobierno de datos</span><br />Administracion de la
-                  informacion.
-                </li>
-              </ul>
-            </div>
-            <div class="tab-contents" id="experiencia">
-              <ul>
-                <li>
-                  <span>Bussines Inteligence</span><br />Inteligencia de
-                  negocio.
-                </li>
-              </ul>
-              <ul>
-                <li>
-                  <span>ETL</span><br />Procesos de extraccion, transformacion y
-                  carga de datos.
-                </li>
-              </ul>
-              <ul>
-                <li>
-                  <span>Modelos analiticos</span><br />Modelos estadisticos,
-                  para describir y/o predecir los datos.
-                </li>
-              </ul>
-              <ul>
-                <li>
-                  <span>Talento humano</span><br />Nuestros ingenieros suman mas
-                  de 40 años de experiencia en procesos de eficiencia,
-                  analitica, planeacion y visualizacion de la informacion.
-                </li>
-              </ul>
-            </div>
-            <div class="tab-contents" id="education">
-              <ul>
-                <li>
-                  <span>Certificaciones</span><br />Bussines Inteligence<br />Gobierno
-                  de la Informacion<br />Earlang<br />Scrum<br />Metodologia
-                  Agil
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="services">
-      <div class="container">
-        <h1 class="sub-title">Nuestros Servicios</h1>
-        <div class="services-list">
-          <div>
-            <i class="fa-solid fa-code"></i>
-            <h2>Programacion</h2>
-            <p>
-              Optimizacion de procesos con programacion Python, SQL, Visual
-              Basic.
-            </p>
-            <a href="#">Saber mas...</a>
-          </div>
-          <div>
-            <i class="fa-sharp fa-solid fa-dashboard"></i>
-            <h2>Visualizacion</h2>
-            <p>
-              Creacion de tableros(dashboard) para visualizacion de KPI's,
-              metricas de negocio.
-            </p>
-            <a href="#">Saber mas...</a>
-          </div>
-          <div>
-            <i class="fa-sharp fa-solid fa-diagnoses"></i>
-            <h2>Workforce</h2>
-            <p>Planeacion operativa de personal y procesos.</p>
-            <a href="#">Saber mas...</a>
           </div>
         </div>
       </div>
@@ -176,28 +74,30 @@
         <h1 class="sub-title">Nuestro Portafolio</h1>
         <div class="work-list">
           <div class="work">
-            <img src="images/Almacenamiento.jpg" />
+            <img src="images/Planeacion.jpg" />
             <div class="layer">
-              <h3>Almacenamiento</h3>
+              <h3>Planeacion Operativa</h3>
               <p>
-                Ofrecemos almacenamiento de sus datos en nuestra nube de datos,
-                para su disponibilidad en todo momento.
+                * Forecasting, dimensionamiento de recursos y programación de personal.</br>
+                * Escenarios de largo, mediano y corto plazo.</br>
+                * Buenas prácticas de programación de turnos y gestión de novedades.</br>
               </p>
-              <a href="#"
+              <a href="index2.html"
                 ><i class="fa-solid fa-arrow-up-rigth-from-square"></i
               ></a>
             </div>
           </div>
           <div class="work">
-            <img src="images/Transformacion.jpg" />
+            <img src="images/ETL.jpg"/>
             <div class="layer">
-              <h3>Transformacion</h3>
+              <h3>Procesos ETL</h3>
               <p>
-                En base a nuestra experiencia buscamos transformar su negocio
-                para aumentar su eficencia con indicadores medibles y objetivos
-                claros.
+                * Mapeo de Fuentes de Datos.</br>
+                * Implementación de Modelos Relacionales.</br>
+                * Reglas de Calidad de Datos.</br>
+                * Almacenamiento en Datawarehouse y Datalake.</br>
               </p>
-              <a href="#"
+              <a href="index2.html"
                 ><i class="fa-solid fa-arrow-up-rigth-from-square"></i
               ></a>
             </div>
@@ -205,19 +105,19 @@
           <div class="work">
             <img src="images/Dashboard.jpg" />
             <div class="layer">
-              <h3>Dashboard</h3>
+              <h3>Visualizacion de datos</h3>
               <p>
-                Para mantener seguimiento de sus indicadores se disponibilizaran
-                tableros de control que seran de uso privado y de acceso desde
-                cualquier medio y hora.
+                * Definición y documentación de KPI’s.</br>
+                * Construcción de dashboards enfocados en las necesidades del negocio.</br>
+                * Procesos de actualización automática.</br>
               </p>
-              <a href="#"
+              <a href="index2.html"
                 ><i class="fa-solid fa-arrow-up-rigth-from-square"></i
               ></a>
             </div>
           </div>
         </div>
-        <a href="#" class="btn">Saber mas...</a>
+        <a href="index2.html" class="btn">Saber mas...</a>
       </div>
     </div>
     <div id="contact">
@@ -295,5 +195,9 @@
         sidemenu.style.right = "-200px";
       }
     </script>
+  <div class="cursor"></div>
+  <div class="cursor cursor2"></div>
+  <!-- partial -->
+    <script  src="js/script.js"></script>
   </body>
 </html>
