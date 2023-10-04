@@ -1768,7 +1768,7 @@ input[type="submit"].style1,
 input[type="reset"].style1,
 button.style1,
 .button.style1 {
-  background: #006675 url("images/overlay.png");
+  background: rgb(119, 0, 101) url("images/overlay.png");
   color: #fff;
 }
 
@@ -1777,7 +1777,7 @@ input[type="submit"].style1:hover,
 input[type="reset"].style1:hover,
 button.style1:hover,
 .button.style1:hover {
-  background-color: #00515d;
+  background-color: rgba(119, 0, 101, 0.7);
 }
 
 input[type="button"].style1:active,
@@ -1785,7 +1785,7 @@ input[type="submit"].style1:active,
 input[type="reset"].style1:active,
 button.style1:active,
 .button.style1:active {
-  background-color: #d96760;
+  background-color: rgba(119, 0, 101, 0.7);
 }
 
 input[type="button"].style2,
@@ -1944,7 +1944,7 @@ ul.actions.special {
 }
 
 .feature-list h3 {
-  color: #00515d !important;
+  color: #770065 !important;
   margin: -0.35em 0 0.75em 0;
   font-size: 1.15em;
   letter-spacing: 0.05em;
@@ -1953,7 +1953,7 @@ ul.actions.special {
 .feature-list h3:before {
   display: block;
   color: #fff;
-  background: #00515d url("images/overlay.png");
+  background: #770065 url("images/overlay.png");
   border-radius: 2.5em;
   text-align: center;
   width: 2.5em;
@@ -2163,7 +2163,7 @@ ul.actions.special {
   -ms-justify-content: center;
   justify-content: center;
   position: relative;
-  height: 24em;
+  height: 12em;
   background: url("../../images/banner_prueba.png") center center;
   background-color: rgb(0, 0, 0);
   background-size: cover;
@@ -2182,7 +2182,7 @@ ul.actions.special {
 }
 
 .homepage #header {
-  height: 35em;
+  height: 20em;
 }
 
 /* Logo */
@@ -2343,8 +2343,7 @@ ul.actions.special {
 }
 
 #intro p.style3 {
-  font-size: 1.1em;
-  width: 48em;
+  font-size: 1.6em;
   margin: 0 auto;
 }
 
