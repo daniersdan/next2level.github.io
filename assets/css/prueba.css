@@ -1,0 +1,60 @@
+/* estilos.css */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenido-popup {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+#cerrarPopup {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #ff5733;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contorno_boton_flotante {
+  position: fixed;
+  right: 0;
+  top: 35%;
+  -webkit-transform: rotate(-90deg);
+  -webkit-transform-origin: 100% 100%;
+}
+
+.margen_boton_flotante {
+  position: relative;
+  font-weight: 700;
+  display: inline-block;
+  cursor: pointer;
+  margin-left: 6px;
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
+  border-radius: 12%;
+}
+
+.logo_boton_flotante img {
+  width: 100px;
+  height: 100px;
+  vertical-align: middle;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
