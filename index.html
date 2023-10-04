@@ -281,7 +281,8 @@
 
         const whatsappURL = `https://wa.me/${phoneNumber}?text=Nombre:${name}%0AEmail:${email}%0ATeléfono:${phone}%0AEmpresa:${company}%0AMensaje:${message}`;
 
-        window.location.href = whatsappURL;
+        window.open(whatsappURL);
+        window.location.reload();
       });
     </script>
     <script src="assets/js/jquery.min.js"></script>
