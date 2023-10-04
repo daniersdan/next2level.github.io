@@ -8,10 +8,13 @@
   <head>
     <title>Home</title>
     <meta charset="utf-8" />
-    <link rel="icon" href="" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="icon" href="images/logo_page.png"
@@ -144,7 +147,7 @@
             <div class="col-6 col-12-medium">
               <!-- Contact Form -->
               <section>
-                <form method="post" action="#">
+                <form id="formulario" method="post">
                   <div class="row gtr-50">
                     <div class="col-6 col-12-small">
                       <input
@@ -167,7 +170,15 @@
                         type="text"
                         name="phone"
                         id="phone"
-                        placeholder="Telefono"
+                        placeholder="Teléfono"
+                      />
+                    </div>
+                    <div class="col-6 col-12-small">
+                      <input
+                        type="text"
+                        name="company"
+                        id="company-name"
+                        placeholder="Empresa"
                       />
                     </div>
                     <div class="col-12">
@@ -181,7 +192,7 @@
                     <div class="col-12">
                       <ul class="actions">
                         <li>
-                          <input type="submit" class="style11" value="enviar" />
+                          <input type="submit" class="style14" value="Enviar" />
                         </li>
                         <li>
                           <input type="reset" class="style2" value="Borrar" />
@@ -199,19 +210,25 @@
                   <div class="col-6 col-12-small">
                     <section>
                       <h3 class="icon solid fa-comment">Redes</h3>
-                      <p>
-                        <a href="#">@next2levelco</a><br />
-                        <a href="#">linkedin.com/next2level</a><br />
-                        <a href="#">instagram.com/next2level</a><br />
-                        <a href="#">facebook.com/next2level</a>
-                      </p>
+                      <div class="social-icons">
+                        <plus href="#"><i class="fa-brands fa-x"></i></plus>
+                        <plus href="#"
+                          ><i class="fa-brands fa-linkedin"></i
+                        ></plus>
+                        <plus href="#"
+                          ><i class="fa-brands fa-instagram"></i
+                        ></plus>
+                        <plus href="#"
+                          ><i class="fa-brands fa-facebook"></i
+                        ></plus>
+                      </div>
                     </section>
                   </div>
                   <div class="col-6 col-12-small">
                     <section>
                       <h3 class="icon solid fa-envelope">Email</h3>
                       <p>
-                        <a href="#">next2level.co@gmail.com</a>
+                        <a>next2level.co@gmail.com</a>
                       </p>
                     </section>
                   </div>
@@ -220,7 +237,7 @@
                       <h3 class="icon solid fa-phone">Telefonos</h3>
                       <a>+57 (320) 376 5396</a><br />
                       <a>+57 (321) 498 2416</a><br />
-                      <a>+57 (320) 376 5396</a><br />
+                      <a>+57 (321) 254 6327</a><br />
                     </section>
                   </div>
                 </div>
@@ -238,6 +255,35 @@
     <div class="cursor"></div>
     <div class="cursor cursor2"></div>
     <!-- Scripts -->
+    <script>
+      const formulario = document.getElementById("formulario");
+
+      formulario.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const name = encodeURIComponent(
+          document.getElementById("contact-name").value
+        );
+        const email = encodeURIComponent(
+          document.getElementById("contact-email").value
+        );
+        const phone = encodeURIComponent(
+          document.getElementById("phone").value
+        );
+        const message = encodeURIComponent(
+          document.getElementById("contact-message").value
+        );
+        const company = encodeURIComponent(
+          document.getElementById("company-name").value
+        );
+
+        const phoneNumber = "573203765396";
+
+        const whatsappURL = `https://wa.me/${phoneNumber}?text=Nombre:${name}%0AEmail:${email}%0ATeléfono:${phone}%0AEmpresa:${company}%0AMensaje:${message}`;
+
+        window.location.href = whatsappURL;
+      });
+    </script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.dropotron.min.js"></script>
     <script src="assets/js/browser.min.js"></script>
