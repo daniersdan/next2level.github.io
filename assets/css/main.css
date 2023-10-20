@@ -33,7 +33,7 @@
   margin-top: 30px;
 }
 
-.social-icons plus {
+.social-icons a {
   text-decoration: none;
   font-size: 30px;
   margin-right: 15px;
@@ -42,7 +42,7 @@
   transition: transform 0.5s;
 }
 
-.social-icons plus:hover {
+.social-icons a:hover {
   color: #0ef6cc;
   transform: translateY(-5px);
 }
