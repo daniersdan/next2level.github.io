@@ -1,6 +1,22 @@
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700,900");
 
+#tooltip-container {
+  position: relative;
+}
+
+.tooltip {
+  display: none;
+  position: absolute;
+  background-color: #f44336;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  bottom: 100%; /* Coloca la tooltip encima del botón */
+  left: 0;
+  transform: translateX(-50%);
+}
+
 .custom-checkbox {
   display: block; /* Asegura que el checkbox tenga su propia línea */
   position: relative;

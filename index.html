@@ -304,6 +304,21 @@
     </div>
     <!-- Scripts -->
     <script>
+      document
+        .getElementById("formulario")
+        .addEventListener("submit", function (event) {
+          const consentCheckbox = document.getElementById("consent");
+          const tooltip = document.getElementById("tooltip");
+
+          if (!consentCheckbox.checked) {
+            tooltip.style.display = "block";
+            event.preventDefault(); // Evita que el formulario se envíe
+          } else {
+            tooltip.style.display = "none";
+          }
+        });
+    </script>
+    <script>
       const formulario = document.getElementById("formulario");
 
       formulario.addEventListener("submit", function (e) {
