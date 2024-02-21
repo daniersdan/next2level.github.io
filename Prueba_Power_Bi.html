@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Autenticación y Contenido Power BI</title>
+  <style>
+    .logo-container {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 15vh; /* Adjust the height as needed */
+     }
+    .logo {
+     width: 180px;
+     height: 100px;
+     }
+ </style>
+</head>
+<body>
+  <div class="logo-container">
+    <img src="images/logo_page.png" alt="Logo" class="logo">
+  </div>
+  <div id="authentication">
+    <h1>Bienvenido! Por favor digite sus credenciales para acceder al visualizador.</h1>
+    <form id="loginForm">
+      <label for="username">Usuario:</label>
+      <br>
+      <input type="text" id="username">
+      <br><br>
+      <label for="password">Contraseña:</label>
+      <br>
+      <input type="password" id="password">
+      <br><br>
+      <input type="submit" value="Iniciar sesión">
+    </form>
+    <img src="images/logo_page.png" alt="Advertencia" id="warningImage" style="display: none;">
+  </div>
+  <div id="content" style="display: none;">
+    <h2>Next2Level - Tablero de Indicadores</h2>
+    <iframe title="KPI" width="1200" height="800" src="https://app.powerbi.com/reportEmbed?reportId=20d2506e-40e5-45a1-b22b-22d80be671df&appId=a48e70b4-63bd-4424-bbba-61072e620e6e&autoAuth=true&ctid=a868f2c0-a3ec-4476-a2a3-4afc2b92db78" frameborder="0" allowFullScreen="true"></iframe>
+  </div>
+  <div id="unlockAccount" style="display: none;">
+    <h2>Desbloquear cuenta</h2>
+    <form id="unlockForm">
+      <label for="cedula">Número de cédula:</label>
+      <input type="text" id="cedula">
+      <br>
+      <label for="captcha">Captcha:</label>
+      <input type="text" id="captcha">
+      <br>
+      <input type="submit" value="Desbloquear">
+    </form>
+  </div>
+  <script>
+    let loginAttempts = 0; // Variable para contar los intentos de inicio de sesión
+    
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevenir el envío del formulario
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      
+      // Verificar las credenciales
+      if (username === "123" && password === "123") {
+        // Ocultar la sección de autenticación
+        document.getElementById("authentication").style.display = "none";
+        // Mostrar el contenido Power BI
+        document.getElementById("content").style.display = "block";
+      } else {
+        loginAttempts++; // Incrementar el contador de intentos de inicio de sesión
+        // Verificar si se han realizado 3 intentos fallidos
+        if (loginAttempts === 3) {
+          // Mostrar un mensaje de bloqueo de usuario
+          alert("Has excedido el número máximo de intentos de inicio de sesión. Tu cuenta ha sido bloqueada.");
+          // Deshabilitar el formulario
+          document.getElementById("loginForm").querySelectorAll("input").forEach(function(input) {
+            input.disabled = true;
+          });
+          // Mostrar el formulario de desbloqueo de cuenta
+          document.getElementById("unlockAccount").style.display = "block";
+        } else {
+          // Mostrar un mensaje de error
+          alert("Credenciales incorrectas. Por favor, inténtalo de nuevo.");
+          // Mostrar la imagen de advertencia
+          document.getElementById("warningImage").style.display = "block";
+        }
+      }
+    });
+    
+    document.getElementById("unlockForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevenir el envío del formulario
+      const cedula = document.getElementById("cedula").value;
+      const captcha = document.getElementById("captcha").value;
+      
+      // Verificar el número de cédula y el captcha
+      if (cedula === "123" && captcha === "1234") {
+        // Habilitar el formulario de inicio de sesión
+        document.getElementById("loginForm").querySelectorAll("input").forEach(function(input) {
+          input.disabled = false;
+        });
+        // Ocultar el formulario de desbloqueo de cuenta
+        document.getElementById("unlockAccount").style.display = "none";
+        // Reiniciar el contador de intentos de inicio de sesión
+        loginAttempts = 0;
+        // Limpiar los campos de desbloqueo de cuenta
+        document.getElementById("cedula").value = "";
+        document.getElementById("captcha").value = "";
+        // Mostrar un mensaje de desbloqueo exitoso
+        alert("Tu cuenta ha sido desbloqueada. Por favor, inicia sesión nuevamente.");
+        // Ocultar la imagen de advertencia
+        document.getElementById("warningImage").style.display = "none";
+      } else {
+        // Mostrar un mensaje de error
+        alert("Los datos ingresados son incorrectos. Por favor, inténtalo de nuevo.");
+      }
+    });
+  </script>
+</body>
+</html>
