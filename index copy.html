@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gráfica de Barras desde CSV</title>
+    <!-- Incluimos D3.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+  </head>
+  <body>
+    <h1>Gráfica de Barras desde CSV</h1>
+    <div>
+      <label for="campo">Selecciona un campo:</label>
+      <select id="campo" onchange="actualizarGrafica()">
+        <!-- Las opciones se añadirán aquí automáticamente -->
+      </select>
+    </div>
+    <div id="chart"></div>
+
+    <script>
+      // Tamaño del gráfico
+      const width = 800;
+      const height = 600;
+
+      // Crear el lienzo del gráfico
+      const svg = d3
+        .select("#chart")
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+      // Función para actualizar la gráfica cuando cambia la selección
+      function actualizarGrafica() {
+        const campoSeleccionado = document.getElementById("campo").value;
+
+        // Leer el archivo CSV
+        d3.csv("datos.csv").then((data) => {
+          // Calcular el recuento del campo seleccionado
+          const campoCounts = d3.rollup(
+            data,
+            (v) => v.length,
+            (d) => d[campoSeleccionado]
+          );
+
+          // Convertir el mapa de recuento en un array de objetos
+          const dataArray = Array.from(campoCounts, ([key, value]) => ({
+            Campo: key,
+            Cantidad: value,
+          }));
+
+          // Escala para el eje y
+          const yScale = d3
+            .scaleLinear()
+            .domain([0, d3.max(dataArray, (d) => d.Cantidad * 1.1)])
+            .range([height - 50, 0]);
+
+          // Escala para el eje x
+          const xScale = d3
+            .scaleBand()
+            .domain(dataArray.map((d) => d.Campo))
+            .range([0, width])
+            .paddingInner(0.1)
+            .paddingOuter(0.1);
+
+          // Actualizar el ancho de las barras según la cantidad de datos
+          xScale.bandwidth(Math.min(40, xScale.bandwidth()));
+
+          // Eliminar la gráfica anterior
+          svg.selectAll("rect").remove();
+          svg.selectAll("g").remove();
+
+          // Crear las barras
+          svg
+            .selectAll("rect")
+            .data(dataArray)
+            .enter()
+            .append("rect")
+            .attr("x", (d) => xScale(d.Campo))
+            .attr("y", (d) => yScale(d.Cantidad))
+            .attr("width", xScale.bandwidth())
+            .attr("height", (d) => height - 50 - yScale(d.Cantidad))
+            .attr("fill", "steelblue");
+
+          // Agregar etiquetas al eje x
+          svg
+            .append("g")
+            .attr("transform", `translate(0, ${height - 50})`)
+            .call(d3.axisBottom(xScale));
+
+          // Agregar etiquetas al eje y
+          svg
+            .append("g")
+            .attr("transform", "translate(25,0)")
+            .call(d3.axisLeft(yScale));
+        });
+      }
+
+      // Función para cargar los encabezados del CSV como opciones en la lista desplegable
+      function cargarEncabezados() {
+        d3.csv("datos.csv").then((data) => {
+          const encabezados = Object.keys(data[0]);
+          const select = document.getElementById("campo");
+          encabezados.forEach((encabezado) => {
+            const option = document.createElement("option");
+            option.text = encabezado;
+            option.value = encabezado;
+            select.appendChild(option);
+          });
+          // Llamar a la función para mostrar la gráfica inicialmente
+          actualizarGrafica();
+        });
+      }
+
+      // Llamar a la función para cargar los encabezados
+      cargarEncabezados();
+    </script>
+  </body>
+</html>
