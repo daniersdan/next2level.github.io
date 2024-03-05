@@ -1,11 +1,138 @@
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700,900");
 
-/*
-	Escape Velocity by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+#tooltip-container {
+  position: relative;
+}
+
+.tooltip {
+  display: none;
+  position: absolute;
+  background-color: #f44336;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  bottom: 100%; /* Coloca la tooltip encima del botón */
+  left: 0;
+  transform: translateX(-50%);
+}
+
+.custom-checkbox {
+  display: block; /* Asegura que el checkbox tenga su propia línea */
+  position: relative;
+  padding-left: 35px; /* Espacio para el cuadro de verificación personalizado */
+  margin-bottom: 15px; /* Espaciado entre los checkboxes */
+  cursor: pointer;
+}
+
+/* Estilo del cuadro de verificación personalizado */
+.custom-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Pseudo-elemento para crear el cuadro de verificación personalizado */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #ccc;
+  border: 1px solid #000;
+}
+
+/* Cambia el estilo del cuadro de verificación cuando está marcado */
+.custom-checkbox input:checked ~ .checkmark {
+  background-color: #2196f3;
+}
+
+/* Pseudo-elemento ::before para mostrar la marca de verificación */
+.checkmark::before {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Muestra la marca de verificación cuando el checkbox está marcado */
+.custom-checkbox input:checked ~ .checkmark::before {
+  display: block;
+}
+
+/* Estilo de la marca de verificación (un tick) */
+.checkmark::before {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.contorno_boton_flotante {
+  position: fixed;
+  right: 0;
+  top: 80%;
+  -webkit-transform: rotate(-90deg);
+  -webkit-transform-origin: 100% 100%;
+}
+
+.margen_boton_flotante {
+  font-weight: 700;
+  display: inline-block;
+  cursor: pointer;
+  margin-left: 6px;
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
+  border-radius: 12%;
+}
+
+.logo_boton_flotante img {
+  width: 100px;
+  height: 100px;
+  vertical-align: middle;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.social-icons {
+  margin-top: 30px;
+}
+
+.social-icons a {
+  text-decoration: none;
+  font-size: 30px;
+  margin-right: 15px;
+  color: #ababab;
+  display: inline-block;
+  transition: transform 0.5s;
+}
+
+.social-icons a:hover {
+  color: #0ef6cc;
+  transform: translateY(-5px);
+}
+
+.boton-enviar {
+  display: block;
+  margin: 50px auto;
+  width: fit-content;
+  border: 1px solid #0ef6cc;
+  padding: 11px 60px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: white;
+  transition: background 0.5s;
+}
+
+.boton-enviar:hover {
+  color: #0ef6cc;
+  transform: translateY(-5px);
+}
 
 html,
 body,
@@ -1751,7 +1878,7 @@ input[type="submit"]:hover,
 input[type="reset"]:hover,
 button:hover,
 .button:hover {
-  background-color: #f98780;
+  background-color: #0ef6cc;
 }
 
 input[type="button"].large,
@@ -1768,7 +1895,7 @@ input[type="submit"].style1,
 input[type="reset"].style1,
 button.style1,
 .button.style1 {
-  background: #006675 url("images/overlay.png");
+  background: rgb(119, 0, 101) url("images/overlay.png");
   color: #fff;
 }
 
@@ -1777,7 +1904,7 @@ input[type="submit"].style1:hover,
 input[type="reset"].style1:hover,
 button.style1:hover,
 .button.style1:hover {
-  background-color: #00515d;
+  background-color: rgba(119, 0, 101, 0.7);
 }
 
 input[type="button"].style1:active,
@@ -1785,7 +1912,7 @@ input[type="submit"].style1:active,
 input[type="reset"].style1:active,
 button.style1:active,
 .button.style1:active {
-  background-color: #d96760;
+  background-color: rgba(119, 0, 101, 0.7);
 }
 
 input[type="button"].style2,
@@ -1944,7 +2071,7 @@ ul.actions.special {
 }
 
 .feature-list h3 {
-  color: #00515d !important;
+  color: #770065 !important;
   margin: -0.35em 0 0.75em 0;
   font-size: 1.15em;
   letter-spacing: 0.05em;
@@ -1953,7 +2080,7 @@ ul.actions.special {
 .feature-list h3:before {
   display: block;
   color: #fff;
-  background: #00515d url("images/overlay.png");
+  background: #770065 url("images/overlay.png");
   border-radius: 2.5em;
   text-align: center;
   width: 2.5em;
@@ -2163,7 +2290,7 @@ ul.actions.special {
   -ms-justify-content: center;
   justify-content: center;
   position: relative;
-  height: 24em;
+  height: 12em;
   background: url("../../images/banner_prueba.png") center center;
   background-color: rgb(0, 0, 0);
   background-size: cover;
@@ -2182,7 +2309,7 @@ ul.actions.special {
 }
 
 .homepage #header {
-  height: 35em;
+  height: 20em;
 }
 
 /* Logo */
@@ -2342,9 +2469,29 @@ ul.actions.special {
   margin-bottom: 1em;
 }
 
+#intro2 p.style2_tratamiento {
+  font-weight: 6;
+  color: #fff;
+  border-radius: 0.35em;
+  box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 0.25);
+  font-size: 1rem;
+  line-height: 1.35em;
+  padding: 1em 1em;
+  margin-bottom: 1em;
+  text-align: justify;
+}
+
+#intro2 p.style2_tratamiento strong {
+  color: rgba(14, 246, 204, 0.7);
+}
+
+#intro2 p.style2_tratamiento strong.tittle_data {
+  font-size: 2rem;
+  color: rgba(14, 246, 204, 1);
+}
+
 #intro p.style3 {
-  font-size: 1.1em;
-  width: 48em;
+  font-size: 1.6em;
   margin: 0 auto;
 }
 
