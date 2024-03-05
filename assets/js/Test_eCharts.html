@@ -1,177 +1,134 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="utf-8" />
-    <title>ECharts Test</title>
-    <script src="echarts.js"></script>
-    <style>
-        body {
-            font-family: 'Century Gothic', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        #main {
-            margin: 10px auto;
-        }
-
-        #theme-toggle {
-            background-color: #333;
-            color: #fff;
-            padding: 5px 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 10px;
-        }
-
-        .light-theme {
-            background-color: #FFFFFF;
-            color: #1B1D1F;
-        }
-
-        .dark-theme {
-            background-color: #1B1D1F;
-            color: #FFFFFF;
-        }
-    </style>
-</head>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>ECharts Test Page</title>
+        <script src="echarts.js"></script>
+        <style>
+            body {
+                font-family: 'Century Gothic', sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+    
+            #main {
+                margin: 10px auto;
+            }
+    
+            #theme-toggle {
+                background-color: #333;
+                color: #fff;
+                padding: 5px 10px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                margin: 10px;
+            }
+    
+            .light-theme {
+                background-color: #FFFFFF;
+                color: #1B1D1F;
+            }
+    
+            .dark-theme {
+                background-color: #1B1D1F;
+                color: #FFFFFF;
+            }
+        </style>
+    </head>
 <body>
-<div id="main" style="width: 600px;height:400px;"></div>
-<button id="theme-toggle">Cambiar Tema</button>
-<script type="text/javascript">
-    // Define theme colors
-    const lightTheme = {
-        backgroundColor: '#FFFFFF',
-        textColor: '#1B1D1F',
-        axisColor: '#1B1D1F',
-        gridColor: '#eee'
-    };
-    const darkTheme = {
-        backgroundColor: '#1B1D1F',
-        textColor: '#FFFFFF',
-        axisColor: '#FFFFFF',
-        gridColor: '#FFFFFF'
-    };
+    <button id="theme-toggle">Cambiar Tema</button>
+    <div id="main" style="width: 600px; height: 400px;"></div>
+    <script type="module">
 
-    // Initialize variables
-    let currentTheme = lightTheme;
-    var myChart = echarts.init(document.getElementById('main'));
+        // Define theme colors
+        const lightTheme = {
+            backgroundColor: '#FFFFFF',
+            textColor: '#1B1D1F',
+            axisColor: '#1B1D1F',
+            gridColor: '#eee'
+        };
+        const darkTheme = {
+            backgroundColor: '#1B1D1F',
+            textColor: '#FFFFFF',
+            axisColor: '#FFFFFF',
+            gridColor: '#FFFFFF'
+        };
 
-    // Specify the configuration items and data for the chart
-    var option = {
-        backgroundColor: currentTheme.backgroundColor,
-        title: {
-            text: 'Bar Chart',
-            textStyle: {
-                color: currentTheme.textColor
-            }
-        },
-        tooltip: {},
-        legend: {
-            show: true,
-            data: ['Test'],
-            textStyle: {
-                color: currentTheme.textColor,
-                fontFamily: 'Century Gothic'
-            },
-            orient: 'horizontal',
-            bottom: 'center'
-        },
-        xAxis: {
-            data: ['Shirts', 'Cardigans', 'Jackets', 'Pants', 'Heels', 'Socks'],
-            axisLabel: {
-                color: currentTheme.axisColor,
-                fontFamily: 'Century Gothic'
-            },
-            axisLine: {
-                lineStyle: {
-                    color: currentTheme.axisColor
-                }
-            }
-        },
-        yAxis: {
-            axisLabel: {
-                color: currentTheme.axisColor,
-                fontFamily: 'Century Gothic'
-            },
-            splitLine: {
-                show: true,
-                lineStyle: {
-                    color: currentTheme.gridColor,
-                    type: 'dashed',
-                    width: 0.4
-                }
-            },
-            axisLine: {
-                lineStyle: {
-                    color: currentTheme.axisColor
-                }
-            }
-        },
-        series: [
-            {
-                name: 'sales',
-                type: 'bar',
-                data: [5, 20, 36, 10, 10, 20],
-                label: {
-                    show: true,
-                    position: 'top',
-                    color: currentTheme.textColor,
-                    fontFamily: 'Century Gothic'
-                },
-                itemStyle: {
-                    color: new echarts.graphic.LinearGradient(
-                        0, 0.5, 1, 0.5,
-                        [
-                            {offset: 0.05, color: currentTheme.backgroundColor},
-                            {offset: 0.1, color: '#006350'},
-                            {offset: 0.5, color: '#00A383'},
-                            {offset: 0.9, color: '#006350'},
-                            {offset: 0.95, color: currentTheme.backgroundColor}
-                        ]
-                    )
-                }
-            }
-        ]
-    };
+        // Initialize variables
+        let currentTheme = lightTheme;
+        var myChart = echarts.init(document.getElementById('main'));
 
+        // Import chart data
+        import chartData from './BarchartData.js';
 
-    // Apply initial theme based on currentTheme
-    document.body.classList.add(currentTheme === lightTheme ? 'light-theme' : 'dark-theme');
+        // Show the chart using the imported data
+        myChart.setOption(chartData);
 
-    // Toggle theme button
-    const themeButton = document.getElementById('theme-toggle');
-    themeButton.addEventListener('click', () => {
-        currentTheme = currentTheme === lightTheme ? darkTheme : lightTheme;
-        updateChartTheme();
-    });
+        // Apply initial theme based on currentTheme
+        document.body.classList.add(currentTheme === lightTheme ? 'light-theme' : 'dark-theme');
 
-    // Update chart theme
-    const updateChartTheme = () => {
-        option.backgroundColor = currentTheme.backgroundColor;
-        option.title.textStyle.color = currentTheme.textColor;
-        option.legend.textStyle.color = currentTheme.textColor;
-        option.xAxis.axisLabel.color = currentTheme.axisColor;
-        option.yAxis.axisLabel.color = currentTheme.axisColor;
-        option.xAxis.axisLine.lineStyle.color = currentTheme.axisColor;
-        option.yAxis.axisLine.lineStyle.color = currentTheme.axisColor;
-        option.series[0].label.color = currentTheme.textColor;
-        option.series[0].itemStyle.color = new echarts.graphic.LinearGradient(
-        0, 0.5, 1, 0.5,
-        [
-            {offset: 0.05, color: currentTheme.backgroundColor},
-            {offset: 0.1, color: '#006350'},
-            {offset: 0.5, color: '#00A383'},
-            {offset: 0.9, color: '#006350'},
-            {offset: 0.95, color: currentTheme.backgroundColor}
-        ]
-    );
-        myChart.setOption(option);
-    };
+        // Toggle theme button
+        const themeButton = document.getElementById('theme-toggle');
+        themeButton.addEventListener('click', () => {
+            currentTheme = currentTheme === lightTheme ? darkTheme : lightTheme;
+            updateBarChartTheme();
+            updateLineChartTheme();
+        });
 
-    // Display the chart using the configuration items and data just specified.
-    myChart.setOption(option);
-</script>
+        // Update chart theme
+        const updateBarChartTheme = () => {
+            chartData.backgroundColor = currentTheme.backgroundColor;
+            chartData.title.textStyle.color = currentTheme.textColor;
+            chartData.legend.textStyle.color = currentTheme.textColor;
+            chartData.xAxis.axisLabel.color = currentTheme.axisColor;
+            chartData.yAxis.axisLabel.color = currentTheme.axisColor;
+            chartData.xAxis.axisLine.lineStyle.color = currentTheme.axisColor;
+            chartData.yAxis.axisLine.lineStyle.color = currentTheme.axisColor;
+            chartData.series[0].label.color = currentTheme.textColor;
+            chartData.series[0].itemStyle.color = new echarts.graphic.LinearGradient(
+            0, 0.5, 1, 0.5,
+            [
+                {offset: 0.05, color: currentTheme.backgroundColor},
+                {offset: 0.1, color: '#006350'},
+                {offset: 0.5, color: '#00A383'},
+                {offset: 0.9, color: '#006350'},
+                {offset: 0.95, color: currentTheme.backgroundColor}
+            ]
+        );
+        
+            myChart.setOption(chartData);
+        };
+    </script>
+    <div id="main2" style="width: 600px; height: 400px;"></div>
+    <script type="module">
+
+        // Initialize variables
+        var myChart = echarts.init(document.getElementById('main2'));
+
+        // Import chart data
+        import chartData from './LinechartData.js';
+
+        // Show the chart using the imported data
+        myChart.setOption(chartData);
+
+        // Apply initial theme based on currentTheme
+        document.body.classList.add(currentTheme === lightTheme ? 'light-theme' : 'dark-theme');
+
+        // Update chart theme
+        const updateLineChartTheme = () => {
+            chartData.backgroundColor = currentTheme.backgroundColor;
+            chartData.title.textStyle.color = currentTheme.textColor;
+            chartData.legend.textStyle.color = currentTheme.textColor;
+            chartData.xAxis.axisLabel.color = currentTheme.axisColor;
+            chartData.yAxis.axisLabel.color = currentTheme.axisColor;
+            chartData.xAxis.axisLine.lineStyle.color = currentTheme.axisColor;
+            chartData.yAxis.axisLine.lineStyle.color = currentTheme.axisColor;
+            chartData.series[0].label.color = currentTheme.textColor;
+            
+        
+            myChart.setOption(chartData);
+        };
+    </script>
 </body>
 </html>
