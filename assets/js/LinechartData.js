@@ -9,13 +9,13 @@ const chartData = {
   tooltip: {},
   legend: {
     show: true,
-    data: ['Test'],
+    data: ['sales'],
     textStyle: {
       color: '#1B1D1F',
       fontFamily: 'Century Gothic'
     },
     orient: 'horizontal',
-    bottom: 'center'
+    bottom: true
   },
   xAxis: {
     data: ['Shirts', 'Cardigans', 'Jackets', 'Pants', 'Heels', 'Socks'],
@@ -59,8 +59,15 @@ const chartData = {
         color: '#1B1D1F',
         fontFamily: 'Century Gothic'
       },
+      lineStyle: {
+        width: 4,
+        type: 'solid',
+        smooth: true
+      },
       itemStyle: {
-        color: '#006350'
+        color: '#006350',
+        borderWidth: 2,
+        borderColor: '#006350'
       }
     }
   ]
