@@ -2291,7 +2291,7 @@ ul.actions.special {
   justify-content: center;
   position: relative;
   height: 12em;
-  background: url("../images/banner_prueba.png") center center;
+  background: url("../../images/banner_prueba.png") center center;
   background-color: rgb(0, 0, 0);
   background-size: cover;
   padding: 0;
