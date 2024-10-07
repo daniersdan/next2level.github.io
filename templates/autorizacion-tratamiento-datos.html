@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-	Escape Velocity by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
   <head>
     <title>Home</title>
@@ -16,8 +11,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="icon" href="images/logo_page.png"
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+    <link rel="icon" href="{{ url_for('static', filename='images/logo_page.png') }}"
   </head>
   <body class="homepage is-preload">
     <div id="page-wrapper">
@@ -27,7 +22,7 @@
         <div id="logo">
           <h1>
             <a href="">
-              <img src="images/titulo.png" />
+              <img src="{{ url_for('static', filename='images/titulo.png') }}" />
             </a>
           </h1>
           <p>Eficiencia basada en analítica</p>
@@ -131,7 +126,7 @@
             con la Política de Tratamiento de Datos Personales dispuesta por la
             sociedad en medio electrónico
             <a
-              href="https://www.home.next2level.com.co/politica-tratamiento-datos.html"
+              href="politica-tratamiento-datos.html"
               target="_blank"
               >https://www.home.next2level.com.co/politica-tratamiento-datos.html</a
             >
@@ -187,13 +182,13 @@
         window.location.reload();
       });
     </script>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.dropotron.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/cursor.js"></script>
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.dropotron.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/browser.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/breakpoints.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/util.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/cursor.js') }}"></script>
     <script>
       function cerrarPestana() {
         window.close(); // Intenta cerrar la pestaña actual
