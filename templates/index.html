@@ -11,8 +11,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="icon" href="images/logo_page.png"
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+    <link rel="icon" href="{{ url_for('static', filename='images/logo_page.png') }}"
   </head>
   <body class="homepage is-preload">
     <div id="page-wrapper">
@@ -22,7 +22,7 @@
         <div id="logo">
           <h1>
             <a href="https://www.home.next2level.com.co/">
-              <img src="images/titulo.png" />
+              <img src="{{ url_for('static', filename='images/titulo.png') }}" />
             </a>
           </h1>
           <p>Eficiencia basada en analítica</p>
@@ -292,7 +292,7 @@
           target="_blank"
         >
           <span class="logo_boton_flotante"
-            ><img src="images/logowhatsapp.png"
+            ><img src="{{ url_for('static', filename='images/logowhatsapp.png') }}"
           /></span>
         </a>
       </div>
@@ -343,12 +343,12 @@
         window.location.reload();
       });
     </script>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.dropotron.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/cursor.js"></script>
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.dropotron.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/browser.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/breakpoints.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/util.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/cursor.js') }}"></script>
   </body>
 </html>
