@@ -11,6 +11,7 @@ import psycopg2
 from psycopg2.extras import RealDictCursor
 from flask_cors import CORS
 from datetime import datetime
+import os
 
 app = Flask(__name__)
 CORS(app)
@@ -40,10 +41,10 @@ def aviso():
 # Conexión a la base de datos PostgreSQL
 def get_db_connection():
     conn = psycopg2.connect(
-        host="next2level.c1ieaicow1bf.us-east-2.rds.amazonaws.com",
-        database="next2level",
-        user="postgres",
-        password="q9Z5!cEiPB*ic6RYFs^",
+        host=os.environ["N2LHOST"],
+        database=os.environ["N2LDB"],
+        user=os.environ["N2LUSERPAGE"],
+        password=os.environ["N2LPASSWORDPAGE"],
     )
     return conn
 
