@@ -1,0 +1,95 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background: url("../images/banner_prueba.png") no-repeat center center;
+    background-size: cover;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Contenedor principal del formulario */
+.login-container {
+    background-color: rgba(226, 224, 224, 0.5);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    width: 300px;
+    text-align: center;
+}
+
+/* Estilo de los títulos */
+h2 {
+    margin-bottom: 25px;
+    font-size: 30px;
+    color: #ffffff;
+}
+
+/* Estilo para los campos de entrada */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Estilo para el botón */
+.login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #484d55;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.login-button:hover {
+    background-color: #0ef6cc;
+    color: black;
+}
+
+/* Estilo para los mensajes de error */
+.error-messages {
+    list-style-type: none;
+    padding: 0;
+    color: red;
+    margin-bottom: 20px;
+}
+
+.error-messages li {
+    margin-bottom: 10px;
+}
+
+.cursor {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    --size: 40px;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin: calc(var(--size) * -0.5) 0 0 calc(var(--size) * -0.5);
+    transition: transform 0.85s cubic-bezier(0, 0.02, 0, 1);
+    display: none;
+    pointer-events: none;
+}
+@media (pointer: fine) {
+    .cursor {
+        display: block;
+    }
+}
+ 
+.cursor2 {
+--size: 2px;
+transition-duration: 0.7s;
+}

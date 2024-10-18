@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablero Kanban</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/kanban.css') }}">
+</head>
+<body>
+    <h1>Tablero Kanban</h1>
+
+    <div class="kanban-container">
+        <div class="kanban-column" id="todo">
+            <h2>Por Hacer</h2>
+            <div id="todo-items" class="kanban-items" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        </div>
+        <div class="kanban-column" id="in-progress">
+            <h2>En Progreso</h2>
+            <div id="in-progress-items" class="kanban-items" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        </div>
+        <div class="kanban-column" id="done">
+            <h2>Completadas</h2>
+            <div id="done-items" class="kanban-items" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        </div>
+    </div>
+    <div class="task-creation">
+      <h3>Create a New Task</h3>
+      <input type="text" id="task-name" placeholder="Task name">
+      <select id="user-list">
+        <!-- Users will be populated here dynamically -->
+      </select>
+      <button onclick="createTask()">Create Task</button>
+    </div>
+    <!-- Modal para mostrar detalles de la tarea -->
+    <div id="task-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Detalles de la Tarea</h2>
+            <div id="modal-task-details"></div>
+            
+            <label for="priority">Prioridad:</label>
+            <select id="priority">
+                <option value="Baja">Baja</option>
+                <option value="Media">Media</option>
+                <option value="Alta">Alta</option>
+            </select>
+            
+            <label for="user-points">Puntos de Usuario:</label>
+            <input type="number" id="user-points" min="1" max="10">
+            
+            <button onclick="updateTaskDetails()">Guardar Cambios</button>
+        </div>
+    </div>
+
+    <script>
+        let currentTaskId = null;
+
+        // Función para abrir el modal
+        function openModal(task) {
+            document.getElementById('modal-task-details').innerHTML = `
+                <strong>Tarea:</strong> ${task.task_name}<br/>
+                <strong>Descripción:</strong> <input type="text" id="task-description" maxlength="150" value="${task.description || ''}">
+            `;
+            document.getElementById('priority').value = task.priority || 'Baja'; // Establecer valor por defecto
+            document.getElementById('user-points').value = task.user_points || 1; // Establecer valor por defecto
+            currentTaskId = task.id; // Guardar el ID de la tarea actual
+            document.getElementById('task-modal').style.display = 'block'; // Mostrar el modal
+        }
+
+        // Función para cerrar el modal
+        function closeModal() {
+            document.getElementById('task-modal').style.display = 'none';
+        }
+
+        // Añadir evento para cerrar el modal cuando se hace clic fuera del contenido
+        window.onclick = function(event) {
+            const modal = document.getElementById('task-modal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        };
+
+        // Función para actualizar los detalles de la tarea
+        function updateTaskDetails() {
+            const description = document.getElementById('task-description').value;
+            const priority = document.getElementById('priority').value;
+            const userPoints = document.getElementById('user-points').value;
+
+            fetch(`http://localhost:5000/tasks/${currentTaskId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ description, priority, user_points: userPoints })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Task updated:', data);
+                closeModal(); // Cerrar el modal después de guardar
+                loadTasks(); // Recargar las tareas para mostrar cambios
+            })
+            .catch(error => console.error('Error updating task:', error));
+        }
+
+        // Cargar las tareas al cargar la página
+        document.addEventListener('DOMContentLoaded', loadTasks);
+
+        // Función para cargar las tareas desde el servidor
+        function loadTasks() {
+            fetch('http://localhost:5000/tasks')
+                .then(response => response.json())
+                .then(tasks => {
+                    document.getElementById('todo-items').innerHTML = '';
+                    document.getElementById('in-progress-items').innerHTML = '';
+                    document.getElementById('done-items').innerHTML = '';
+
+                    tasks.forEach(task => {
+                        const taskDiv = document.createElement('div');
+                        taskDiv.className = 'kanban-item';
+                        taskDiv.draggable = true;
+                        taskDiv.ondragstart = drag;
+                        taskDiv.id = `task-${task.id}`;
+
+                        // Mostrar el nombre de la tarea y el responsable
+                        taskDiv.innerHTML = `<strong>${task.task_name}</strong><br/>Responsable: ${task.assigned_to}`;
+
+                        // Evento de clic para abrir el modal
+                        taskDiv.onclick = () => openModal(task);
+
+                        // Añadir la tarea al estado correspondiente
+                        if (task.status === 'To Do') {
+                            document.getElementById('todo-items').appendChild(taskDiv);
+                        } else if (task.status === 'In Progress') {
+                            document.getElementById('in-progress-items').appendChild(taskDiv);
+                        } else {
+                            document.getElementById('done-items').appendChild(taskDiv);
+                        }
+                    });
+                })
+                .catch(error => console.error('Error loading tasks:', error));
+        }
+
+        // Funciones para arrastrar y soltar
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+            // Aquí puedes agregar lógica para actualizar el estado de la tarea en la base de datos
+        }
+    </script>
+</body>
+</html>
