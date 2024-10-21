@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload and Visualize Data</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        h2 {
+            text-align: center;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        .plotly-container {
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Upload a File and Visualize Data</h2>
+
+        <!-- Formulario para cargar archivo -->
+        <form action="/demo" method="post" enctype="multipart/form-data">
+            <label for="file">Choose file:</label>
+            <input type="file" name="file" id="file" accept=".csv, .txt, .xlsx">
+            <button type="submit">Upload</button>
+        </form>
+
+        <!-- Mostrar el formulario de selección de gráfico si hay columnas disponibles -->
+        {% if categorical_columns or numerical_columns %}
+        <form action="/demo" method="post">
+            <label for="chart_type">Select chart type:</label>
+            <select name="chart_type" id="chart_type">
+                <option value="scatter">Scatter Plot</option>
+                <option value="bar">Bar Plot</option>
+                <option value="line">Line Plot</option>
+            </select>
+
+            <label for="x_axis">Select X Axis:</label>
+            <select name="x_axis" id="x_axis">
+                {% for column in categorical_columns %}
+                <option value="{{ column }}">{{ column }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="y_axis">Select Y Axis:</label>
+            <select name="y_axis" id="y_axis">
+                {% for column in numerical_columns %}
+                <option value="{{ column }}">{{ column }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="aggregation">Select Aggregation (for numerical columns):</label>
+            <select name="aggregation" id="aggregation">
+                <option value="none">None</option>
+                <option value="sum">Sum</option>
+                <option value="mean">Average</option>
+                <option value="count">Count</option>
+            </select>
+
+            <button type="submit">Generate Chart</button>
+        </form>
+        {% endif %}
+
+        <!-- Mostrar gráfico interactivo si está disponible -->
+        {% if graphJSON %}
+        <div class="plotly-container">
+            <h3>Data Visualization</h3>
+            <div id="graph"></div>
+            <script>
+                var graphs = {{ graphJSON | safe }};
+                Plotly.newPlot('graph', graphs.data, graphs.layout);
+            </script>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

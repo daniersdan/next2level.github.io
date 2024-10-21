@@ -1,0 +1,21 @@
+[flake8]
+max-line-length = 150
+max-line-length-imports = 150
+exclude =
+    .git,
+    __pycache__,
+    old,
+    build,
+    dist,
+    .sh,
+    .txt,
+    .yml,
+    .db,
+    .md,
+    data.py,
+    comment,
+    tests,
+    migrations,
+    scripts,
+    test,
+    utils.py
