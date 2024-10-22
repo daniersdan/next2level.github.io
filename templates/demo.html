@@ -5,27 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload and Visualize Data</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f4f9;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
-        }
-        h2 {
-            text-align: center;
-        }
-        form {
-            margin-bottom: 20px;
-        }
-        .plotly-container {
-            margin-top: 40px;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/demo.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/logo_page.png') }}">
 </head>
 <body>
     <div class="container">

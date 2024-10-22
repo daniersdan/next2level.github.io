@@ -188,8 +188,6 @@ def allowed_file(filename):
 
 @app.route('/demo', methods=['GET', 'POST'])
 def upload_file():
-    plot_html = None
-    columns = []
     graphJSON = None
     categorical_columns = []
     numerical_columns = []
@@ -223,7 +221,8 @@ def upload_file():
                 categorical_columns = df.select_dtypes(include=['object', 'category']).columns.tolist()
                 numerical_columns = df.select_dtypes(include=['number']).columns.tolist()
 
-                flash(f'File successfully uploaded and data loaded into table "{table_name}"')
+                # flash(f'File successfully uploaded and data loaded into table "{table_name}"')
+                os.remove(file_path)
 
         elif request.form.get('x_axis') and request.form.get('y_axis') and request.form.get('chart_type'):
             # Recuperar el nombre de la tabla desde la sesión
@@ -249,26 +248,20 @@ def upload_file():
             aggregation = request.form.get('aggregation')
 
             # Aplicar agregación si es necesario
-            if aggregation and y_axis in numerical_columns:
+            if aggregation is not None:
                 if aggregation == 'sum':
                     df = df.groupby(x_axis)[y_axis].sum().reset_index()
                 elif aggregation == 'mean':
                     df = df.groupby(x_axis)[y_axis].mean().reset_index()
                 elif aggregation == 'count':
                     df = df.groupby(x_axis)[y_axis].count().reset_index()
-
-            # Generar el gráfico con base en las selecciones del usuario
             if chart_type == 'scatter':
                 fig = px.scatter(df, x=x_axis, y=y_axis, title=f'Scatter Plot of {x_axis} vs {y_axis}')
             elif chart_type == 'bar':
                 fig = px.bar(df, x=x_axis, y=y_axis, title=f'Bar Plot of {x_axis} vs {y_axis}')
             elif chart_type == 'line':
                 fig = px.line(df, x=x_axis, y=y_axis, title=f'Line Plot of {x_axis} vs {y_axis}')
-
-            # Convertir el gráfico a JSON para pasarlo al front-end
             graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
-
-            # Obtener las columnas categóricas y numéricas para mantener el formulario visible
             categorical_columns = df.select_dtypes(include=['object', 'category']).columns.tolist()
             numerical_columns = df.select_dtypes(include=['number']).columns.tolist()
 
