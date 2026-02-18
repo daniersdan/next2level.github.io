@@ -1,231 +1,262 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Home</title>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=no"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="icon" href="images/logo_page.png"
-  </head>
-  <body class="homepage is-preload">
-    <div id="page-wrapper">
-      <!-- Header -->
-      <section id="header" class="wrapper">
-        <!-- Logo -->
-        <div id="logo">
-          <h1>
-            <a href="https://www.home.next2level.com.co/">
-              <img src="images/titulo.png" />
-            </a>
-          </h1>
-          <p>Eficiencia basada en analítica</p>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Next2Level | Eficiencia basada en analítica</title>
+  <meta name="description" content="Next2Level - Soluciones de analítica y consultoría empresarial. Llevamos tu negocio al siguiente nivel." />
+  <link rel="icon" href="images/logo_page.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+  <!-- Particle Canvas Background -->
+  <canvas id="particles"></canvas>
+
+  <!-- Navigation -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">
+        <img src="images/titulo.png" alt="Next2Level" class="logo-img" />
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#hero" class="nav-link active">Inicio</a></li>
+        <li><a href="#about" class="nav-link">Nosotros</a></li>
+        <li><a href="#services" class="nav-link">Servicios</a></li>
+        <li><a href="#contact" class="nav-link">Contacto</a></li>
+        <li><a href="login.html" class="nav-link nav-login"><i class="fas fa-user-lock"></i> Portal</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">Analítica &amp; Consultoría</div>
+      <h1 class="hero-title">
+        <span class="line">Llevamos tu negocio</span>
+        <span class="line gradient-text">al siguiente nivel</span>
+      </h1>
+      <p class="hero-subtitle">
+        Eficiencia basada en analítica. Construimos <strong>soluciones</strong> prácticas y 
+        personalizadas para tu industria, por medio de procesos 
+        <strong>ágiles</strong>, técnicos y de <strong>calidad</strong>.
+      </p>
+      <div class="hero-actions">
+        <a href="#services" class="btn btn-primary">
+          <span>Nuestros Servicios</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="#contact" class="btn btn-outline">
+          <span>Contáctenos</span>
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number" data-count="100">0</span><span class="stat-symbol">%</span>
+          <span class="stat-label">Compromiso</span>
         </div>
-
-        <!-- Nav -->
-        <nav id="nav">
-          <ul>
-            <li class="current">
-              <a href="https://www.home.next2level.com.co">Inicio</a>
-            </li>
-            <li><a href="#main">Portafolio</a></li>
-            <li><a href="#footer">Contáctenos</a></li>
-            <!--<li><a href="Prueba_Power_Bi.html">Tableros</a></li>-->
-          </ul>
-        </nav>
-      </section>
-
-      <!-- Intro -->
-      <section id="intro" class="wrapper style1">
-        <div class="title">Nuestro objetivo</div>
-        <div class="container">
-          <p class="style2">
-            Destacamos al construir <strong>soluciones</strong> prácticas y
-            personalizadas para tu industria, por medio de procesos
-            <strong>ágiles</strong>, técnicos y de
-            <strong>calidad</strong> convirtiéndonos en el partner ideal.<br />
-            Juntos, construimos futuro con resultados
-            <strong>confiables</strong> y cuantificables.
-          </p>
-          <p class="style3">Llevamos tu negocio al siguiente nivel.</p>
-          <ul class="actions">
-            <li><a href="#footer" class="button style3 large">CONÓCENOS</a></li>
-          </ul>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number" data-count="50">0</span><span class="stat-symbol">+</span>
+          <span class="stat-label">Proyectos</span>
         </div>
-      </section>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number" data-count="24">0</span><span class="stat-symbol">hrs</span>
+          <span class="stat-label">Soporte</span>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="mouse">
+        <div class="wheel"></div>
+      </div>
+      <span>Scroll</span>
+    </div>
+  </section>
 
-      <!-- Main -->
-      <section id="main" class="wrapper style2">
-        <div class="title">Nuestros Servicios</div>
-        <div class="container">
-          <!-- Features -->
-          <section id="features">
-            <div class="feature-list">
-              <div class="row">
-                <div class="col-6 col-12-medium">
-                  <section>
-                    <h3 class="icon solid fa-cog">Estructuración de Negocio</h3>
-                    <p>
-                      Juntos direccionaremos el ciclo de vida de tu producto o
-                      servicio.
-                    </p>
-                  </section>
-                </div>
-                <div class="col-6 col-12-medium">
-                  <section>
-                    <h3 class="icon solid fa-sync">Evaluación de Procesos</h3>
-                    <p>
-                      Generarás valor a los procesos con la optimización de
-                      tareas y actividades de tu negocio.
-                    </p>
-                  </section>
-                </div>
-                <div class="col-6 col-12-medium">
-                  <section>
-                    <h3 class="icon solid fa-check">KPO's/KPI's</h3>
-                    <p>
-                      En conjunto definiremos objetivos e indicadores claves
-                      para el control y crecimiento de tu negocio.
-                    </p>
-                  </section>
-                </div>
-                <div class="col-6 col-12-medium">
-                  <section>
-                    <h3 class="icon fa-image">Soluciones de Visualización</h3>
-                    <p>
-                      Te brindamos la oportunidad de crear tableros
-                      (<strong>Dashboards</strong>), donde podrás monitorear tus
-                      objetivos para apoyar la toma de decisiones.
-                    </p>
-                  </section>
-                </div>
-                <div class="col-6 col-12-medium">
-                  <section>
-                    <h3 class="icon solid fa-wrench">
-                      Diagnóstico de Modelos y Datos
-                    </h3>
-                    <p>
-                      Te ofrecemos un mantenimiento correctivo, preventivo y
-                      predictivo ajustado a tus necesidades.
-                    </p>
-                  </section>
-                </div>
-                <div class="col-6 col-12-medium">
-                  <section>
-                    <h3 class="icon fa-comment">Gestión de Conocimiento</h3>
-                    <p>
-                      Realizaremos entrenamiento de tu personal, buscando el
-                      desarrollo de sus habilidades técnicas.
-                    </p>
-                  </section>
-                </div>
+  <!-- About Section -->
+  <section id="about" class="section about">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <span class="section-tag">Sobre Nosotros</span>
+        <h2 class="section-title">Nuestro <span class="gradient-text">objetivo</span></h2>
+      </div>
+      <div class="about-grid" data-animate>
+        <div class="about-card glass-card">
+          <div class="card-icon">
+            <i class="fas fa-bullseye"></i>
+          </div>
+          <h3>Misión</h3>
+          <p>Destacamos al construir soluciones prácticas y personalizadas para tu industria, 
+            convirtiéndonos en el partner ideal para el crecimiento de tu negocio.</p>
+        </div>
+        <div class="about-card glass-card">
+          <div class="card-icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <h3>Visión</h3>
+          <p>Juntos, construimos futuro con resultados confiables y cuantificables.
+            Procesos ágiles, técnicos y de calidad que impulsan tu empresa.</p>
+        </div>
+        <div class="about-card glass-card">
+          <div class="card-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <h3>Valores</h3>
+          <p>Compromiso, transparencia y excelencia definen cada proyecto. 
+            Tu éxito es nuestro éxito en cada paso del camino.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="section services">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <span class="section-tag">Portafolio</span>
+        <h2 class="section-title">Nuestros <span class="gradient-text">Servicios</span></h2>
+        <p class="section-desc">Soluciones integrales de analítica y consultoría para llevar tu empresa al siguiente nivel.</p>
+      </div>
+      <div class="services-grid" data-animate>
+        <div class="service-card glass-card">
+          <div class="service-number">01</div>
+          <div class="service-icon">
+            <i class="fas fa-cogs"></i>
+          </div>
+          <h3>Estructuración de Negocio</h3>
+          <p>Juntos direccionaremos el ciclo de vida de tu producto o servicio hacia el crecimiento sostenible.</p>
+          <div class="service-line"></div>
+        </div>
+        <div class="service-card glass-card">
+          <div class="service-number">02</div>
+          <div class="service-icon">
+            <i class="fas fa-sync-alt"></i>
+          </div>
+          <h3>Evaluación de Procesos</h3>
+          <p>Generarás valor a los procesos con la optimización de tareas y actividades de tu negocio.</p>
+          <div class="service-line"></div>
+        </div>
+        <div class="service-card glass-card">
+          <div class="service-number">03</div>
+          <div class="service-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>KPO's / KPI's</h3>
+          <p>Definiremos objetivos e indicadores claves para el control y crecimiento de tu negocio.</p>
+          <div class="service-line"></div>
+        </div>
+        <div class="service-card glass-card">
+          <div class="service-number">04</div>
+          <div class="service-icon">
+            <i class="fas fa-chart-bar"></i>
+          </div>
+          <h3>Soluciones de Visualización</h3>
+          <p>Creamos Dashboards donde podrás monitorear tus objetivos para apoyar la toma de decisiones.</p>
+          <div class="service-line"></div>
+        </div>
+        <div class="service-card glass-card">
+          <div class="service-number">05</div>
+          <div class="service-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <h3>Diagnóstico de Modelos y Datos</h3>
+          <p>Mantenimiento correctivo, preventivo y predictivo ajustado a tus necesidades específicas.</p>
+          <div class="service-line"></div>
+        </div>
+        <div class="service-card glass-card">
+          <div class="service-number">06</div>
+          <div class="service-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <h3>Gestión de Conocimiento</h3>
+          <p>Entrenamiento de tu personal, buscando el desarrollo de sus habilidades técnicas.</p>
+          <div class="service-line"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section contact">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <span class="section-tag">Hablemos</span>
+        <h2 class="section-title">Contácta<span class="gradient-text">nos</span></h2>
+      </div>
+      <div class="contact-grid" data-animate>
+        <div class="contact-form-wrapper glass-card">
+          <form id="formulario">
+            <div class="form-row">
+              <div class="form-group">
+                <input type="text" id="contact-name" name="name" required placeholder=" " />
+                <label for="contact-name">Nombres</label>
+                <div class="input-line"></div>
+              </div>
+              <div class="form-group">
+                <input type="email" id="contact-email" name="email" required placeholder=" " />
+                <label for="contact-email">Email</label>
+                <div class="input-line"></div>
               </div>
             </div>
-            <ul class="actions special">
-              <li>
-                <a href="#footer" class="button style1 large">Conoce cómo...</a>
-              </li>
-            </ul>
-          </section>
+            <div class="form-row">
+              <div class="form-group">
+                <input type="tel" id="phone" name="phone" placeholder=" " />
+                <label for="phone">Teléfono</label>
+                <div class="input-line"></div>
+              </div>
+              <div class="form-group">
+                <input type="text" id="company-name" name="company" placeholder=" " />
+                <label for="company-name">Empresa</label>
+                <div class="input-line"></div>
+              </div>
+            </div>
+            <div class="form-group full">
+              <textarea id="contact-message" name="message" rows="4" required placeholder=" "></textarea>
+              <label for="contact-message">Mensaje</label>
+              <div class="input-line"></div>
+            </div>
+            <div class="form-group full consent-group">
+              <label class="checkbox-label">
+                <input type="checkbox" id="consent" name="consent" required />
+                <span class="custom-check">
+                  <i class="fas fa-check"></i>
+                </span>
+                <span class="checkbox-text">
+                  Acepto la 
+                  <a href="autorizacion-tratamiento-datos.html" target="_blank">autorización para el tratamiento de datos personales</a>, 
+                  conozco la <a href="politica-tratamiento-datos.html" target="_blank">política de tratamiento de datos</a> 
+                  y el <a href="aviso-privacidad.html" target="_blank">aviso de privacidad</a>.
+                </span>
+              </label>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">
+                <span>Enviar mensaje</span>
+                <i class="fas fa-paper-plane"></i>
+              </button>
+              <button type="reset" class="btn btn-outline">
+                <span>Limpiar</span>
+              </button>
+            </div>
+          </form>
         </div>
-      </section>
-
-      <!-- Footer -->
-      <section id="footer" class="wrapper">
-        <div class="title">Contactanos</div>
-        <div class="container">
-          <div class="row">
-            <div class="col-6 col-12-medium">
-              <!-- Contact Form -->
-              <section>
-                <form id="formulario" method="post">
-                  <div class="row gtr-50">
-                    <div class="col-6 col-12-small">
-                      <input
-                        type="text"
-                        name="name"
-                        id="contact-name"
-                        placeholder="Nombres"
-                      />
-                    </div>
-                    <div class="col-6 col-12-small">
-                      <input
-                        type="text"
-                        name="email"
-                        id="contact-email"
-                        placeholder="Email"
-                      />
-                    </div>
-                    <div class="col-6 col-12-small">
-                      <input
-                        type="text"
-                        name="phone"
-                        id="phone"
-                        placeholder="Teléfono"
-                      />
-                    </div>
-                    <div class="col-6 col-12-small">
-                      <input
-                        type="text"
-                        name="company"
-                        id="company-name"
-                        placeholder="Empresa"
-                      />
-                    </div>
-                    <div class="col-12">
-                      <textarea
-                        name="message"
-                        id="contact-message"
-                        placeholder="Mensaje"
-                        rows="4"
-                      ></textarea>
-                    </div>
-                    <div class="col-12">
-                      <label for="consent" class="custom-checkbox"
-                        >Al dar click Acepto la
-                        <a
-                          href="autorizacion-tratamiento-datos.html"
-                          target="_blank"
-                          >Autorizacion para el tratamiento de datos
-                          personales</a
-                        >, declaro que conozco la
-                        <a
-                          href="politica-tratamiento-datos.html"
-                          target="_blank"
-                          >politica de tratamiento de datos</a
-                        >
-                        y el
-                        <a href="aviso-privacidad.html" target="_blank"
-                          >aviso de privacidad</a
-                        >.
-                        <input
-                          type="checkbox"
-                          name="consent"
-                          id="consent"
-                          required
-                        />
-                        <span class="checkmark"></span>
-                      </label>
-                    </div>
-                    <div class="col-12">
-                      <ul class="actions">
-                        <li>
-                          <input type="submit" class="style14" value="Enviar" />
-                        </li>
-                        <li>
-                          <input type="reset" class="style2" value="Borrar" />
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </form>
-              </section>
+        <div class="contact-info">
+          <div class="info-card glass-card">
+            <div class="info-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <h4>Email</h4>
+              <a href="mailto:contacto@next2level.com.co">contacto@next2level.com.co</a>
             </div>
             <div class="col-6 col-12-medium">
               <!-- Contact -->
@@ -268,87 +299,51 @@
               </section>
             </div>
           </div>
-          <div id="copyright">
-            <ul>
-              <li>&copy; Next2Level.</li>
-            </ul>
+          <div class="info-card glass-card">
+            <div class="info-icon"><i class="fas fa-share-alt"></i></div>
+            <div>
+              <h4>Redes Sociales</h4>
+              <div class="social-links">
+                <a href="https://www.linkedin.com/company/next2level" target="_blank" aria-label="LinkedIn">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/next2level.co/" target="_blank" aria-label="Instagram">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
-    </div>
-    <div class="cursor"></div>
-    <div class="cursor cursor2"></div>
-    <div class="contorno_boton_flotante">
-      <div
-        class="margen_boton_flotante"
-        style="
-          background-color: rgba(255, 255, 255, 0);
-          color: rgb(253, 253, 253);
-        "
-      >
-        <a
-          class="texto_boton_flotante"
-          href="https://wa.me/573203765396?text=Hola%0AQuisiera mas información de sus servicios."
-          target="_blank"
-        >
-          <span class="logo_boton_flotante"
-            ><img src="images/logowhatsapp.png"
-          /></span>
-        </a>
       </div>
     </div>
-    <!-- Scripts -->
-    <script>
-      document
-        .getElementById("formulario")
-        .addEventListener("submit", function (event) {
-          const consentCheckbox = document.getElementById("consent");
-          const tooltip = document.getElementById("tooltip");
+  </section>
 
-          if (!consentCheckbox.checked) {
-            tooltip.style.display = "block";
-            event.preventDefault(); // Evita que el formulario se envíe
-          } else {
-            tooltip.style.display = "none";
-          }
-        });
-    </script>
-    <script>
-      const formulario = document.getElementById("formulario");
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="images/titulo.png" alt="Next2Level" />
+          <p>Eficiencia basada en analítica</p>
+        </div>
+        <div class="footer-links">
+          <a href="politica-tratamiento-datos.html">Política de datos</a>
+          <a href="autorizacion-tratamiento-datos.html">Autorización de datos</a>
+          <a href="aviso-privacidad.html">Aviso de privacidad</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Next2Level. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
 
-      formulario.addEventListener("submit", function (e) {
-        e.preventDefault();
+  <!-- WhatsApp Floating Button -->
+  <a class="whatsapp-btn" href="https://wa.me/573203765396?text=Hola%0AQuisiera%20más%20información%20de%20sus%20servicios." target="_blank" aria-label="Chat en WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+    <span class="whatsapp-pulse"></span>
+  </a>
 
-        const name = encodeURIComponent(
-          document.getElementById("contact-name").value
-        );
-        const email = encodeURIComponent(
-          document.getElementById("contact-email").value
-        );
-        const phone = encodeURIComponent(
-          document.getElementById("phone").value
-        );
-        const message = encodeURIComponent(
-          document.getElementById("contact-message").value
-        );
-        const company = encodeURIComponent(
-          document.getElementById("company-name").value
-        );
-
-        const phoneNumber = "573203765396";
-
-        const whatsappURL = `https://wa.me/${phoneNumber}?text=Nombre: ${name}%0AEmail: ${email}%0ATeléfono: ${phone}%0AEmpresa: ${company}%0AMensaje: ${message}`;
-
-        window.open(whatsappURL);
-        window.location.reload();
-      });
-    </script>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.dropotron.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/cursor.js"></script>
-  </body>
+  <script src="assets/js/main.js"></script>
+</body>
 </html>
