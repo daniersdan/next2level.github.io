@@ -188,6 +188,29 @@ img {
   transform: translateX(-50%) scaleX(1);
 }
 
+/* Nav Login Button */
+.nav-login {
+  background: rgba(14,246,204,0.08);
+  border: 1px solid rgba(14,246,204,0.25);
+  border-radius: var(--radius-sm);
+  padding: 8px 20px !important;
+  color: var(--accent-cyan) !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem !important;
+}
+
+.nav-login::after {
+  display: none !important;
+}
+
+.nav-login:hover {
+  background: rgba(14,246,204,0.15);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 20px rgba(14,246,204,0.15);
+}
+
 /* Mobile Nav Toggle */
 .nav-toggle {
   display: none;
