@@ -465,6 +465,34 @@
       passInput.type = isPassword ? 'text' : 'password';
       toggleBtn.querySelector('i').className = isPassword ? 'fas fa-eye-slash' : 'fas fa-eye';
     });
+
+    const USERS = [
+      { email: 'admin@next2level.com.co', password: 'N2L2026!', name: 'Admin Next2Level' },
+      { email: 'demo@brightwave.co',      password: 'BW2026!',  name: 'BrightWave Agency' }
+    ];
+
+    document.querySelector('.login-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const email = document.getElementById('login-user').value.trim().toLowerCase();
+      const pass  = document.getElementById('login-pass').value;
+      const user  = USERS.find(u => u.email === email && u.password === pass);
+
+      if (user) {
+        sessionStorage.setItem('n2l_user', JSON.stringify({ name: user.name, email: user.email }));
+        document.querySelector('.login-btn').innerHTML = '<i class="fas fa-spinner fa-spin"></i> Ingresando...';
+        setTimeout(() => { window.location.href = 'dashboard.html'; }, 800);
+      } else {
+        const btn = document.querySelector('.login-btn');
+        btn.style.background = 'rgba(239,68,68,0.3)';
+        btn.style.boxShadow = '0 0 20px rgba(239,68,68,0.2)';
+        btn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Credenciales inválidas';
+        setTimeout(() => {
+          btn.style.background = '';
+          btn.style.boxShadow = '';
+          btn.innerHTML = '<span>Iniciar Sesión</span><i class="fas fa-arrow-right"></i>';
+        }, 2000);
+      }
+    });
   </script>
 </body>
 </html>
